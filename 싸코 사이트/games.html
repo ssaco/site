@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SSACO - Game Archive</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style>
+    /* 전체 배경 하얀 계열 설정 */
+    body { background-color: #ffffff; }
+
+    #all-games-section { padding: 80px 0; }
+
+    .archive-title {
+      text-align: center;
+      font-weight: 700;
+      font-size: 32px;
+      color: #222;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    /* 타이틀 아래 오렌지색 강조선 */
+    .archive-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #FF8C00;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 가로형 3열 그리드 (게임이 많아지면 자동으로 다음 줄로 넘어감) */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .game-card {
+      background-color: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-color: #FF8C00;
+    }
+
+    .game-thumb {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background-color: #f5f5f5;
+    }
+
+    .card-content { padding: 25px; }
+
+    .card-content h3 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 20px;
+      color: #222;
+    }
+
+    .card-content p {
+      color: #777;
+      font-size: 14px;
+      height: 4.2em;
+      overflow: hidden;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: #FF8C00;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    /* 오렌지색 버튼 설정 */
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      background-color: #FF8C00;
+      color: #ffffff !important;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 2px;
+      text-decoration: none !important;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover { background-color: #FF8C00; }
+
+    .header-spacer { height: 100px; display: none; }
+    
+    /* 네비게이션 및 헤더 수정 */
+    .navbar-default { background-color: rgba(0, 0, 0, 0.8) !important; padding: 25px 0 !important; }
+    .main-header, .bg-color { min-height: auto !important; height: 90px !important; }
+  </style>
+</head>
+
+<body>
+  <header class="main-header" id="header">
+    <div class="bg-color">
+      <nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar">
+              <span class="fa fa-bars"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">SSACO</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="games.html">All Games</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="all-games-section" style="padding-top: 130px;">
+    <div class="container">
+      <h2 class="archive-title">My Projects</h2>
+      
+      <div class="game-grid">
+        <div class="game-card">
+          <img src="img/mawangyi.png" alt="마왕구하기" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Comedy</span>
+            <h3>마왕구하기</h3>
+            <p>싸코의 첫 자작게임. 많이 부실하지만 애착이 가는 프로젝트입니다.</p>
+            <a href="mawang.html" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/pcroom.png" alt="학원탈출" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Comedy</span>
+            <h3>학원째고 피방가자</h3>
+            <p>선생님의 눈을 피해 학원을 탈출하여 PC방에 도달해야 합니다.</p>
+            <p>쯔꾸르 전설적 병맛게임의 정식 리메이크작입니다.</p>
+            <a href="pcroom.html" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/rock.png" alt="가위바위보어드벤쳐" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Comedy</span>
+            <h3>가위바위보어드벤쳐</h3>
+            <p>단순한 가위바위보를 넘어선 심리전과 성장 요소가 가미된 게임입니다.</p>
+            <a href="rsp.html" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        
+        <div class="game-card">
+          <img src="img/title.png" alt="에어컨 사수" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Comedy</span>
+            <h3>에어컨이 필요해</h3>
+            <p>폭염속 에어컨을 위해 모험을 떠나는 게임</p>
+            <a href="air.html" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        
+        <div class="game-card">
+
+          <img src="img/neocity-scrnshot02.png" alt="NEO" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Belt_Scroll_Action</span>
+            <h3>NEO CITY FIGHTERS</h3>
+            <p>근미래의 도시… 과연 히로토는 이 구역의 왕이 될 수 있을까?</p>
+            <a href="https://1chicken.com/entries/5th/neo-city-fighters/" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        
+        <div class="game-card">
+          <img src="img/s1 (1).jpg" alt="sinsung" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Puzzle</span>
+            <h3>신성</h3>
+            <p>어느날 신을 만난 친구, 하지만 그 후 행방을 알 수 없게 되었습니다.그 친구를 찾으러 가는 게임입니다.</p>
+            <a href="https://ssaco.itch.io/sinsung" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        
+        <div class="game-card">
+          <img src="img/wesun.jpg" alt="wesun" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Puzzle</span>
+            <h3>위선</h3>
+            <p>근미래의 인구과잉 문제를 해결하기 위해 사형제도와 의료 행위 자체가 불법이 된 세상에서 
+            <br> 주인공은 비허가 병원을 운영해야 합니다.</p>
+            <a href="https://store.onstove.com/ko/games/3279" class="download-btn">View Detail</a>
+          </div>
+        </div>
+
+        
+        <div class="game-card">
+          <img src="img/sora.png" alt="sora" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Puzzle</span>
+            <h3>소라와 零의 세계</h3>
+            <p>Comming Soon</p>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 footer-copyright">
+          © SSACO - All rights reserved
+          <div class="credits">
+            Designed by <a href="https://www.youtube.com/channel/UCnswfvnMU24mIRhF81ojt_g">ssaco</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

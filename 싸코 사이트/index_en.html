@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SSACO</title>
+  <meta name="description" content="Ssaco's creative portfolio site">
+  <meta name="keywords" content="games, rpg maker, RPG MAKER MV, RPG MAKER VX ACE, free games, music, video editing">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <style>
+      .main-header { height: 100vh; }
+      .bg-color { height: 100vh; }
+
+      #all-games {
+          background-color: var(--bg-color-main); 
+          padding: 80px 0;
+          color: var(--text-main);
+      }
+
+      .archive-title {
+          text-align: center;
+          margin-bottom: 60px;
+          font-weight: 700;
+          color: var(--text-heading);
+          text-transform: uppercase;
+          position: relative;
+          padding-bottom: 20px;
+      }
+
+      .archive-title::after {
+          content: '';
+          position: absolute;
+          display: block;
+          width: 50px;
+          height: 3px;
+          background: #FF8C00;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+      }
+
+      .game-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+      }
+
+      .game-card {
+          background-color: var(--card-bg);
+          border-radius: 4px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          border: 1px solid var(--border-color);
+      }
+
+      .game-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      }
+
+      .game-thumb {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+      }
+
+      .card-content {
+          padding: 25px;
+      }
+
+      .card-content h3 {
+          margin-top: 0;
+          font-weight: 700;
+          font-size: 1.2rem;
+          color: var(--text-heading);
+      }
+
+      .card-content p {
+          color: var(--text-muted-alt);
+          font-size: 0.9rem;
+          margin-bottom: 20px;
+          height: 4rem;
+          overflow: hidden;
+      }
+
+      .download-btn {
+          display: block;
+          width: 100%;
+          padding: 12px 0;
+          background-color: #FF8C00;
+          color: #fff !important;
+          font-weight: 600;
+          text-align: center;
+          border-radius: 2px;
+          transition: all 0.3s;
+          text-decoration: none !important;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+
+      .download-btn:hover {
+          background-color: #FF8C00;
+          box-shadow: 0 4px 12px rgba(255, 180, 62, 0.3);
+      }
+
+      .tag {
+          font-size: 0.75rem;
+          color: #FF8C00;
+          font-weight: bold;
+          margin-right: 10px;
+      }
+
+      #music {
+          background-color: var(--bg-color-main);
+      }
+      
+      .music-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          margin-bottom: 40px;
+      }
+
+      .music-card {
+          background-color: var(--card-bg);
+          border-radius: 8px;
+          padding: 30px 20px;
+          border: 1px solid var(--border-color);
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+
+      .music-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+          border-color: #FF8C00;
+      }
+
+      .music-icon {
+          font-size: 40px;
+          color: #FF8C00;
+          margin-bottom: 20px;
+      }
+
+      .music-info h3 {
+          margin-top: 0;
+          margin-bottom: 10px;
+          font-weight: 700;
+          font-size: 1.3rem;
+          color: var(--text-heading);
+      }
+
+      .music-info p {
+          color: var(--text-muted-alt);
+          font-size: 0.95rem;
+          margin-bottom: 25px;
+      }
+
+      .music-player {
+          width: 100%;
+          height: 40px;
+          outline: none;
+      }
+      
+      .music-player::-webkit-media-controls-panel {
+          background-color: var(--border-color);
+      }
+      .music-player::-webkit-media-controls-play-button,
+      .music-player::-webkit-media-controls-mute-button {
+          background-color: var(--bg-color-main);
+          border-radius: 50%;
+      }
+  </style>
+  
+</head>
+
+<body>
+  <!--header-->
+  <header class="main-header" id="header">
+    <video autoplay loop muted playsinline class="header-video">
+      <source src="videos/header.mp4" type="video/mp4">
+    </video>
+    <div class="bg-color">
+      <!--nav-->
+      <nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+              <a href="index_en.html" class="navbar-brand">SSACO</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#header">Home</a></li>
+                <li><a href="#feature">Info</a></li>
+                <li><a href="#music">My Music</a></li>
+                <li><a href="#portfolio">My Games</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html" style="font-weight: bold;">KR</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--/ nav-->
+      <div class="container text-center">
+        <div class="wrapper wow fadeInUp delay-05s">
+          <h2 class="top-title">games and videos</h2>
+          <img src="img/ssaco.png" alt="SSACO STUDIO" class="title-img" style="max-width: 100%; height: auto; margin: 20px 0;">
+          <h4 class="sub-title">Creative Works</h4>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--/ header-->
+  <!---->
+  <section id="cta-1">
+    <div class="container">
+      <div class="row">
+        <div class="cta-info text-center">
+          <h3><span class="dec-tec"></span>Game Dev / SongWriting / Video Editing<span class="dec-tec"></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---->
+  <!---->
+  <section id="feature" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 wow fadeInLeft delay-05s">
+          <div class="section-title">
+            <h2 class="head-title">Information</h2>
+            <hr class="botm-line">
+            <p class="sec-para">Hello!<br>I make games, compose music, and edit videos.<br>
+          </div>
+          <script src="https://kit.fontawesome.com/1322e320e8.js" crossorigin="anonymous"></script>
+        </div>
+        <div class="col-md-9">
+          <div class="col-md-6 wow fadeInRight delay-02s">
+            <div class="icon">
+              <i class="fab fa-fort-awesome"></i>
+            </div>
+            <div class="icon-text">
+              <h3 class="txt-tl">Game Design</h3>
+              <p class="txt-para">I cover a wide range of fields, from game programming and design to music composition. </p>
+            </div>
+          </div>
+          <div class="col-md-6 wow fadeInRight delay-02s">
+            <div class="icon">
+              <i class="far fa-file-video"></i>
+            </div>
+            <div class="icon-text">
+              <h3 class="txt-tl">Videos</h3>
+              <p class="txt-para">I have experience editing trailers for various games.<br>  </p>
+              <a href="https://youtube.com/playlist?list=PLQO7NWg9OPkLIXYkP1j7_PEQvJSVlOt5i&si=qTZcubw0l4CLN5nt" class="btn btn-submit">View Works</a>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---->
+  <section class="section-padding parallax bg-image-2 section wow fadeIn delay-08s" id="cta-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="cta-txt">
+            <h3>YouTube Channel</h3>
+            <p>You can watch many videos here.</p>
+            <a href="https://www.youtube.com/channel/UCnswfvnMU24mIRhF81ojt_g">Go to YouTube</a>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="https://www.youtube.com/channel/UCnswfvnMU24mIRhF81ojt_g" class="btn btn-submit">Subscribe Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---->
+  <!---->
+  <section class="section-padding wow fadeInUp delay-02s" id="music">
+    <div class="container">
+      <h2 class="archive-title">My Music</h2>
+      <div class="music-grid">
+        <div class="music-card" style="padding: 15px;">
+          <iframe style="border: 0; width: 100%; height: 470px; border-radius: 4px;" src="https://bandcamp.com/EmbeddedPlayer/album=86512685/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/track=439375890/transparent=true/" seamless><a href="https://aprilapple666.bandcamp.com/album/live-at-seoul-game-town">Live at Seoul Game Town by april apple, ssaco</a></iframe>
+        </div>
+        <div class="music-card" style="padding: 15px;">
+          <iframe style="border: 0; width: 100%; height: 470px; border-radius: 4px;" src="https://www.youtube.com/embed/yWyBtiNmNz0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="music-card" style="padding: 15px;">
+          <iframe style="border: 0; width: 100%; height: 470px; border-radius: 4px;" src="https://www.youtube.com/embed/UvUs7UCFXqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="music-card" style="padding: 15px;">
+          <iframe style="border: 0; width: 100%; height: 470px; border-radius: 4px;" src="https://www.youtube.com/embed/eCJ5MFk3i1M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---->
+  <!---->
+  <section class="section-padding wow fadeInUp delay-02s" id="portfolio">
+    
+    <div class="container">
+      <h2 class="archive-title">Game Archive</h2>
+      
+      <div class="game-grid">
+        <div class="game-card">
+          <img src="img/neocity-scrnshot02.png" alt="NEO CITY FIGHTERS" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Belt_Scroll_Action</span>
+            <h3>NEO CITY FIGHTERS</h3>
+            <p>In a near-future city... can Hiroto become the king of this district?</p>
+            <a href="https://1chicken.com/entries/5th/neo-city-fighters/" class="download-btn">Download</a>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/wesun.jpg" alt="Hypocrisy" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Puzzle</span>
+            <h3>Hypocrisy</h3>
+            <p>In a near-future world where medical practices are illegal due to overpopulation, Shino and Rachel operate an unlicensed hospital disguised as a cafe.</p>
+            <a href="https://store.onstove.com/ko/games/3279" class="download-btn">Download</a>
+          </div>
+        </div>
+
+        <div class="game-card">
+          <img src="img/s1 (1).jpg" alt="Divinity" class="game-thumb">
+          <div class="card-content">
+            <span class="tag">#Puzzle</span>
+            <h3>Divinity</h3>
+            <p>A friend met a god one day, and disappeared shortly after. This is a game about finding that friend.</p>
+            <a href="https://ssaco.itch.io/sinsung" class="download-btn">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+      <a href="games.html" class="download-btn" style="display: inline-block; width: auto; padding: 15px 60px; font-size: 1.1rem;">
+        View All Games <i class="fa fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+  <!---->
+  <!---->
+  <section class="section-padding wow fadeInUp delay-05s" id="contact">
+    <div class="container">
+      <div class="row white">
+        <div class="col-md-8 col-sm-12">
+          <div class="section-title">
+            <h2 class="head-title black">Contact Me</h2>
+            <hr class="botm-line">
+            <p class="sec-para black">You can reach out to me here</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <div class="col-md-4 col-sm-6" style="padding-left:0px;">
+            
+            </div>
+
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <h3 class="cont-title">Where to find Ssaco</h3>
+            <div class="location-info">
+              <p class="white"><span aria-hidden="true" class="fab fa-twitter"></span>X: <a href="https://x.com/ssaco7" class="link-dec">@ssaco7</a></p>
+              <p class="white"><span aria-hidden="true" class="far fa-envelope"></span>Email: <a href="mailto:j43h4l33@gmail.com" class="link-dec">j43h4l33@gmail.com</a></p>
+            </div>
+          </div>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!---->
+  <!---->
+  <footer class="" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 footer-copyright">
+          © 2026 ssaco. All rights reserved.
+          <div class="credits">
+            Designed by <a href="https://www.youtube.com/channel/UCnswfvnMU24mIRhF81ojt_g">ssaco</a>
+          </div>
+        </div>
+        <div class="col-sm-5 footer-social">
+          <div class="pull-right hidden-xs hidden-sm">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+            <a href="#"><i class="fa fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!---->
+  <!--contact ends-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+  <!-- BGM Player -->
+  <div id="bgm-player" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-radius: 8px; overflow: hidden; background: #000; border: 2px solid #FF8C00; transition: transform 0.3s ease; width: 280px;">
+    <div style="background: #111; color: #FF8C00; padding: 5px 10px; font-size: 12px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+      <span>BGM Player</span>
+      <button onclick="document.getElementById('bgm-player').classList.toggle('minimized')" style="background:none; border:none; color:#FF8C00; cursor:pointer;"><i class="fa fa-minus"></i></button>
+    </div>
+    <div class="player-content" style="height: 157px;">
+      <iframe width="100%" height="157" src="https://www.youtube.com/embed/eCJ5MFk3i1M?autoplay=1&loop=1&playlist=eCJ5MFk3i1M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+  <style>
+    #bgm-player.minimized {
+      transform: translateY(157px);
+    }
+  </style>
+
+</body>
+</html>

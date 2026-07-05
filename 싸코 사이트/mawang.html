@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Detail - SSACO</title>
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style>
+    body { background-color: #fff; color: #333; }
+    .header-spacer { height: 80px; display: none; }
+    
+    /* 상세 페이지 레이아웃 */
+    .detail-container { padding: 120px 0 60px 0; }
+    .game-main-img { width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; }
+    
+    .game-info-box { padding: 20px; background: #f9f9f9; border-radius: 8px; border-left: 5px solid #FF8C00; }
+    .game-title { font-weight: 700; font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .game-category { color: #FF8C00; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    
+    .btn-download-large {
+        display: block; background: #FF8C00; color: #fff !important;
+        text-align: center; padding: 18px; font-size: 1.2rem; font-weight: 700;
+        border-radius: 4px; margin-top: 30px; transition: 0.3s;
+    }
+    .btn-download-large:hover { background: #FF8C00; transform: translateY(-3px); }
+
+    .section-sub-title { font-weight: 700; margin: 40px 0 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    .spec-list { list-style: none; padding: 0; }
+    .spec-list li { margin-bottom: 10px; font-size: 0.95rem; }
+    .spec-list b { width: 100px; display: inline-block; color: #555; }
+    
+    /* 네비게이션 및 헤더 수정 */
+    .navbar-default { background-color: rgba(0, 0, 0, 0.8) !important; padding: 25px 0 !important; }
+    .main-header, .bg-color { min-height: auto !important; height: 90px !important; }
+  </style>
+</head>
+
+<body>
+  <header class="main-header" id="header">
+    <div class="bg-color">
+      <nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">SSACO</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="games.html">All Games</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container detail-container">
+    <div class="row">
+      <div class="col-md-7">
+        <img src="img/mawangyi.png" alt="Game Main" class="game-main-img">
+        <div class="row">
+            <div class="col-md-12" style="margin-bottom:15px;"><iframe width="100%" height="315" src="https://www.youtube.com/embed/QOfUYqvda0M?si=sHvWJemN0KVaVj1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            <div class="col-md-12" style="margin-bottom:15px;"><iframe width="100%" height="315" src="https://www.youtube.com/embed/PTgwYmVLbDU?si=HMgUB0vGtKW6zn_V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="game-info-box">
+            <span class="game-category">Comedy / RPG</span>
+            <h1 class="game-title">마왕구하기</h1>
+            <p>이 게임은 기존의 용사 서사를 뒤틀어, 위기에 처한 마왕을 구하기 위해 떠나는 독특한 여정을 다룹니다. 다만 2018년 초등학생감성이 주류로 흐르고있으니 플레이할때 주의하세요.</p>
+        </div>
+
+        <h3 class="section-sub-title">시스템 요구사항</h3>
+        <ul class="spec-list">
+            <li><b>OS:</b> Windows 7/8/10/11</li>
+            <li><b>CPU:</b> Intel Core i3 이상</li>
+            <li><b>RAM:</b> 4GB RAM</li>
+            <li><b>Storage:</b> 200MB 여유 공간</li>
+        </ul>
+
+        <a href="https://drive.google.com/file/d/1N0BxNr20pAqIXty-mqRCboJXWwiJow__/view?usp=sharing" class="btn-download-large">
+            <i class="fa fa-download"></i> 게임 다운로드 (.ZIP)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container text-center">
+      © SSACO Studio - All rights reserved
+    </div>
+  </footer>
+
+</body>
+</html>
